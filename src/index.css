@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Game container */
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Canvas styles */
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Container for Social Icons */
+.header__social {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  z-index: 1000;
+}
+
+/* Social Icon Style */
+.header__social .header__icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  color: #4d4d4d;
+  transition: all 0.3s ease-in-out;
+  font-size: 24px;
+}
+
+/* Hover Effects for Icons */
+.header__social .header__icon:hover {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Tooltip Style */
+.header__social .tooltip {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+/* Tooltip Visibility on Hover */
+.header__social .header__icon:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -50px;
+}
+
+/* Individual Social Icons (Colors) */
+.header__social .header__icon[data-social="linkedin"] {
+  background-color: #0077b5;
+  color: #fff;
+}
+
+.header__social .header__icon[data-social="github"] {
+  background-color: #333;
+  color: #fff;
+}
+
+.header__social .header__icon[data-social="behance"] {
+  background-color: #1769ff;
+  color: #fff;
+}
+
+.header__social .header__icon[data-social="facebook"] {
+  background-color: #1877f2;
+  color: #fff;
+}
+
+.header__social .header__icon[data-social="instagram"] {
+  background-color: #e4405f;
+  color: #fff;
+}
+
+.header__social .header__icon[data-social="twitter"] {
+  background-color: #1da1f2;
+  color: #fff;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 640px) {
+  body, html {
+    overflow: hidden;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .game-container {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 288px;
+    max-height: 512px;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+  }
+
+  .header__social {
+    top: 10px;
+    right: 10px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .header__social .header__icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .header__social .tooltip {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 768px) {
+  .game-container {
+    transform: scale(0.95);
+    transform-origin: center;
+  }
+
+  .header__social {
+    top: 15px;
+    right: 15px;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .header__social .header__icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .header__social {
+    top: 50px;
+    right: 20px;
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .header__social .header__icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+}
